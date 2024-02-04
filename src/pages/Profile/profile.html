@@ -1,0 +1,26 @@
+{{#> layouts/main title="Профайл" center="container-center"}}
+<div class="profile">
+    <img src="./../../../static/icons/photo-icon.svg" alt="avatar" class="profile__avatar">
+    <h4 class="profile__name">Иван</h4>
+    {{#each profile}}
+    <div class="profile__field">
+        <p class="profile__field__name">{{name}}</p>
+        <p class="profile__field__value">{{value}}</p>
+    </div>
+    {{/each}}
+    <div class="profile__field">
+        <button class="btn btn-text pl-0">Изменить данные <i class="fa-solid fa-pen-to-square"></i></button>
+    </div>
+    <div class="profile__field">
+        <button class="btn btn-text pl-0">Изменить пароль <i class="fa-solid fa-key"></i></button>
+    </div>
+    <div class="profile__field profile__field-noBorder">
+        <button class="btn btn-text btn-text-red pl-0">Выйти</button>
+    </div>
+    <button class="btn btn-purple mt-3">
+        <span><i class="fa-solid fa-arrow-left"></i></span> Назад к чатам
+    </button>
+</div>
+
+<script src="profile.js" type="module"></script>
+{{/ layouts/main }}

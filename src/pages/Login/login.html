@@ -1,0 +1,21 @@
+{{#> layouts/main title="Страница входа" center="container-center"}}
+<div class="login">
+    <h1 class="login__header login__header-lineAfter">Авторизация</h1>
+    <form action="" class="login__form">
+        <div class="">
+            {{#each login}}
+            <div class="inputGroup">
+                <label for="{{id}}" class="inputGroup__label">{{title}}</label>
+                <input id="{{id}}" name="{{name}}" type="{{type}}" class="inputGroup__input">
+            </div>
+            {{/each}}
+        </div>
+        <div class="">
+            <button class="btn btn-big btn-purple">Войти</button>
+            <button class="btn btn-text">Создать аккаунт</button>
+        </div>
+    </form>
+</div>
+
+<script src="login.js" type="module"></script>
+{{/ layouts/main }}

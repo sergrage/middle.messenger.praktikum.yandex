@@ -1,0 +1,51 @@
+.profile {
+  width: 600px;
+  text-align: center;
+
+  &__avatar {
+
+
+  }
+
+  &__name {
+    font-size: 16px;
+    padding-bottom: 20px;
+    color: #1E1E1E;
+  }
+
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #EAEAEA;
+    font-size: 13px;
+
+    &-noBorder {
+      border-bottom: none;
+  }
+
+    &__name {
+      font-weight: bold;
+      color: #1E1E1E;
+    }
+    &__value {
+      color: #999999;
+    }
+
+    &__label {
+      font-weight: bold;
+      color: #1E1E1E;
+      margin: 15px;
+    }
+    &__input {
+      flex: 1;
+      border: none;
+      color: #999999;
+      text-align: right;
+      margin: 15px;
+      &:focus-visible {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+}

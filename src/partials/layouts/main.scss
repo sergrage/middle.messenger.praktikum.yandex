@@ -1,0 +1,68 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+// Fontawesome
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+:root {
+    --purple-color: #B27FB2;
+    --text-color: #1E1E1E;
+    --text-second-color: #999999;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.mt-3 {
+  margin-top: 48px !important;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1920px;
+  height: 100vh;
+  &-center {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 300;
+  transition: all .3s;
+  &-purple {
+    background: var(--purple-color);
+    color: #ffffff;
+    &:hover {
+      background: #8e658e;
+    }
+  }
+  &-big {
+    width: 100%;
+  }
+  &-text {
+    color: #3369F3;
+    font-size: 11px;
+    background: transparent;
+    font-weight: bold;
+    &-red {
+      color: red;
+    }
+  }
+}
