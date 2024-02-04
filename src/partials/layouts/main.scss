@@ -28,6 +28,10 @@
   margin-top: 48px !important;
 }
 
+.m-auto {
+  margin: 0 auto;
+}
+
 .container {
   display: flex;
   width: 100%;
@@ -41,11 +45,14 @@
 
 .btn {
   cursor: pointer;
-  padding: 15px 20px;
+  display: block;
+  padding: 13px 20px;
   border: none;
   border-radius: 10px;
   font-weight: 300;
   transition: all .3s;
+  text-decoration: none;
+  width: fit-content;
   &-purple {
     background: var(--purple-color);
     color: #ffffff;
