@@ -1,2 +1,1 @@
 import './../Profile/profile.scss';
-

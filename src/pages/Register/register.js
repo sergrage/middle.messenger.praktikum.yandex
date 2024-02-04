@@ -1,2 +1,1 @@
 import './register.scss';
-
