@@ -9,7 +9,7 @@
         <input class="chat__search__input" type="text" name="search" placeholder="&#xf002; Поиск">
     </div>
     {{#each chatThreads}}
-    <div class="chat__thread {{#if active}}chat__thread-active{{/if}}" >
+    <div class="chat__thread {{#if active}}chat__thread-active{{/if}}">
         <div class="chat__thread__info">
             <div class="chat__thread__avatar"></div>
             <div class="chat__thread__title">
@@ -32,8 +32,8 @@
     {{/each}}
 </div>
 
-    {{#if chatMessages.length}}
-    <div class="chat__content">
+{{#if chatMessages.length}}
+<div class="chat__content">
     <div class="chat__content__head">
         <div class="chat__content__head__info">
             <div class="chat__thread__info">
@@ -96,27 +96,31 @@
         </div>
         {{/each}}
     </div>
-    <div class="chat__content__footer">
-        <div class="chat__content__footer__addFile">
-            <span><i class="fa-solid fa-paperclip"></i></span>
+    <form action="">
+        <div class="chat__content__footer">
+            <div class="chat__content__footer__addFile">
+                <label for="addFile"><span><i class="fa-solid fa-paperclip"></i></span></label>
+                <input id="addFile" type="file" hidden="hidden">
+            </div>
+            <div class="chat__content__footer__inputWrap">
+                <input type="text" class="chat__content__footer__input" name="message">
+            </div>
+            <button class="chat__content__footer__send">
+                <span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
         </div>
-        <div class="chat__content__footer__inputWrap">
-            <input type="text" class="chat__content__footer__input" name="message">
-        </div>
-        <div class="chat__content__footer__send">
-            <span><i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-    </div>
-    </div>
-    {{else}}
-    <div class="chat__content chat__content-center">
+    </form>
+
+</div>
+{{else}}
+<div class="chat__content chat__content-center">
     <div class="">
         <img src="./../../../static/icons/no-message-icon.svg" alt="no-message-icon">
         <p class="chat__content__no-message">Выберите чат чтобы отправить сообщение</p>
     </div>
-    </div>
+</div>
 
-    {{/if}}
+{{/if}}
 
 
 <script src="chat.js" type="module"></script>

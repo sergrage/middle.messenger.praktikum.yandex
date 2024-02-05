@@ -10,13 +10,13 @@
   &__name {
     font-size: 16px;
     padding-bottom: 20px;
-    color: #1E1E1E;
+    color: var(--text-color);
   }
 
   &__field {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid var(--gray-color);
     font-size: 13px;
 
     &-noBorder {
@@ -25,21 +25,21 @@
 
     &__name {
       font-weight: bold;
-      color: #1E1E1E;
+      color: var(--text-color);
     }
     &__value {
-      color: #999999;
+      color: var(--text-second-color);
     }
 
     &__label {
       font-weight: bold;
-      color: #1E1E1E;
+      color: var(--text-color);
       margin: 15px;
     }
     &__input {
       flex: 1;
       border: none;
-      color: #999999;
+      color: var(--text-second-color);
       text-align: right;
       margin: 15px;
       &:focus-visible {

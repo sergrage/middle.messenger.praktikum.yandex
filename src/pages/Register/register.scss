@@ -8,7 +8,7 @@
 
   &__header {
     padding-top: 30px;
-    color: #1E1E1E;
+    color: var(--text-color);
     font-size: 20px;
     &-lineAfter::after {
       width: 80px;
@@ -34,21 +34,19 @@
   padding: 15px 0;
   display: flex;
   flex-direction: column;
-  //align-items: center;
   text-align: start;
 
   &__label {
     color: var(--text-second-color);
     font-size: 9px;
-    //margin-right: auto;
   }
 
   &__input {
     border: none;
-    border-bottom: 1px solid #3369F3;
+    border-bottom: 1px solid var(--blue-color);
     width: 100%;
     font-size: 13px;
-    color: #1E1E1E;
+    color: var(--text-color);
     height: 20px;
 
     &-purple {
@@ -57,7 +55,7 @@
 
     &:focus-visible {
       border: none;
-      border-bottom: 1px solid blue;
+      border-bottom: 1px solid var(--blue-color);
       outline: none;
     }
   }

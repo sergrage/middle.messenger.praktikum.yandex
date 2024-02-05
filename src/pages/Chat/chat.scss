@@ -6,7 +6,7 @@
 
     &__input {
       font-family: 'Open Sans', 'FontAwesome', serif;
-      background: #EFEFEF;
+      background: var(--gray-color);
       height: 32px;
       width: 90%;
       border: none;
@@ -31,7 +31,7 @@
 
     &__link {
       text-decoration: none;
-      color: #999999;
+      color: var(--text-second-color);
       font-size: 12px;
 
       &-purple {
@@ -42,14 +42,14 @@
 
   &__threads {
     width: 310px;
-    background: #FBFBFB;
+    background: var(--threads-bg-color);
     overflow-y: scroll;
     padding-left: 10px;
 
     &::-webkit-scrollbar-track {
-      border: 1px solid #FFFFFF;
+      border: 1px solid var(--white-color);
       padding: 2px 0;
-      background-color: #EFEFEF;
+      background-color: var(--gray-color);
     }
 
     &::-webkit-scrollbar {
@@ -59,23 +59,23 @@
     &::-webkit-scrollbar-thumb {
       border-radius: 10px;
       background-color: var(--purple-color);
-      border: 1px solid #FFFFFF;
+      border: 1px solid var(--white-color);
     }
   }
 
   &__thread {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #EAEAEA;
+    border-top: 1px solid var(--gray-color);
     position: relative;
     cursor: pointer;
 
     &-active {
-      background: aliceblue;
+      background: var(--thread-active-bg-color);
     }
 
     &:hover {
-      background: #FFFFFF;
+      background: var(--white-color);
     }
 
     &__avatar {
@@ -83,7 +83,7 @@
       min-width: 50px;
       height: 50px;
       width: 50px;
-      background-color: #EFEFEF;
+      background-color: var(--gray-color);
       border-radius: 50%;
       display: inline-block;
 
@@ -116,7 +116,7 @@
       position: absolute;
       right: 10px;
       margin: 0;
-      color: #999999;
+      color: var(--text-second-color);
       font-size: 9px;
     }
 
@@ -130,9 +130,9 @@
       height: 20px;
       width: 20px;
       font-size: 12px;
-      background-color: #B27FB2;
+      background-color: var(--purple-color);
       border-radius: 50%;
-      color: #FFFFFF;
+      color: var(--white-color);
     }
 
     &__lastText {
@@ -141,7 +141,7 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
 
-      color: #999999;
+      color: var(--text-second-color);
       font-size: 12px;
       margin: 5px 0;
 
@@ -156,7 +156,7 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
 
-      color: #1E1E1E;
+      color: var(--text-color);
       font-size: 13px;
       font-weight: bold;
       margin: 0;
@@ -167,7 +167,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    background: #FFFFFF;
+    background: var(--white-color);
 
     &-center {
       justify-content: center;
@@ -183,7 +183,7 @@
       justify-content: space-between;
       padding: 10px 0;
       margin: 0 20px;
-      border-bottom: 1px solid #EAEAEA;
+      border-bottom: 1px solid var(--gray-color);
 
       &__action {
         font-size: 20px;
@@ -197,9 +197,9 @@
       overflow-y: scroll;
 
       &::-webkit-scrollbar-track {
-        border: 1px solid #FFFFFF;
+        border: 1px solid var(--white-color);
         padding: 2px 0;
-        background-color: #EFEFEF;
+        background-color: var(--gray-color);
       }
 
       &::-webkit-scrollbar {
@@ -209,7 +209,7 @@
       &::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background-color: var(--purple-color);
-        border: 1px solid #FFFFFF;
+        border: 1px solid var(--white-color);
       }
 
       padding: 10px 0;
@@ -223,8 +223,6 @@
           color: var(--purple-color);
           text-align: center;
         }
-
-
       }
     }
 
@@ -233,13 +231,15 @@
       justify-content: space-between;
       padding: 10px 0;
       margin: 10px 20px;
-      border-top: 1px solid #EAEAEA;
+      border-top: 1px solid var(--gray-color);
 
       &__addFile {
-        cursor: pointer;
         font-size: 32px;
-        color: #999999;
-        font-weight: 300;
+        color: var(--text-second-color);
+
+        label {
+          cursor: pointer;
+        }
       }
 
       &__inputWrap {
@@ -252,7 +252,11 @@
         height: 32px;
         border: none;
         border-radius: 20px;
-        background: #EFEFEF;
+        background: var(--gray-color);
+        &:focus-visible {
+          border: none;
+          outline: none;
+        }
       }
 
       &__send {
@@ -261,9 +265,10 @@
         align-items: center;
         width: 28px;
         height: 28px;
+        border: none;
         border-radius: 50%;
         background: var(--purple-color);
-        color: #FFFFFF;
+        color: var(--white-color);
         cursor: pointer;
       }
     }
@@ -277,11 +282,11 @@
   min-width: 150px;
   width: fit-content;
   font-size: 12px;
-  color: #1E1E1E;
+  color: var(--text-color);
   border-radius: 10px;
 
   &__imageWrap {
-    background: #FFFFFF !important;
+    background: var(--white-color) !important;
     border-radius: 20px;
     padding-left: 0;
     padding-right: 0;
@@ -296,15 +301,15 @@
       bottom: 20px;
       right: 10px;
       padding: 5px 10px;
-      color: #FFFFFF;
+      color: var(--white-color);
       background: var(--purple-color);
     }
   }
 
   &-companion {
-    background: #F8F8F8;
+    background: var(--gray-color);
     &__time {
-      color: #999999;
+      color: var(--text-second-color);;
       font-size: 9px;
       position: absolute;
       bottom: 15px;
@@ -324,9 +329,8 @@
       bottom: 10px;
       right: 10px;
       margin-left: 5px;
-      color: #3369F3;
+      color: var(--blue-color);
       font-size: 9px;
     }
   }
-
 }

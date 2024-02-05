@@ -1,6 +1,7 @@
 {{#> layouts/main title="Профайл" center="container-center"}}
 <div class="profile">
     <img src="./../../../static/icons/photo-icon.svg" alt="avatar" class="profile__avatar">
+    <form action="">
     {{#each profile}}
     <div class="profile__field">
         <label for="{{name}}" class="profile__field__label">{{title}}</label>
@@ -8,6 +9,7 @@
     </div>
     {{/each}}
     <button class="btn btn-big btn-purple mt-3">Сохранить</button>
+    </form>
     <a class="btn btn-purple mt-3 m-auto" href="../Chat/chat.html">
         <span><i class="fa-solid fa-arrow-left"></i></span> Назад к чатам
     </a>
