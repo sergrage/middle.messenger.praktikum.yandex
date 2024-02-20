@@ -1,1 +1,0 @@
-import './../Profile/profile.scss';

@@ -7,7 +7,7 @@ https://genuine-crostata-3677d8.netlify.app/
 ## Про проект:
 - HTML + SCSS + JS
 - handlebars + Vite
-
+- typescript
 
 Чат под кодовым названием "Болт" (от болтать) :)))
 
