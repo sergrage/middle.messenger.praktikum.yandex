@@ -4,6 +4,7 @@ import {resolve} from 'path';
 
 export default defineConfig({
     // root: './src',
+    publicDir: "./src/static",
     plugins: [handlebars({
         partialDirectory: resolve(__dirname, 'src/partials'),
     })],
