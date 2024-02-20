@@ -5,20 +5,20 @@ import {resolve} from 'path';
 export default defineConfig({
     // root: './src',
     plugins: [handlebars({
-        partialDirectory: resolve(__dirname, 'src/partials'),
+        partialDirectory: resolve(__dirname, 'src/components/**/*', 'src/pages/**/*'),
     })],
     build: {
         rollupOptions: {
             input: {
                 index: resolve(__dirname, 'index.html'),
-                chat: resolve(__dirname, 'src/pages/Chat/chat.hbs'),
-                profile: resolve(__dirname, 'src/pages/Profile/profile.hbs'),
-                editProfile: resolve(__dirname, 'src/pages/EditProfile/editProfile.hbs'),
-                editPassword: resolve(__dirname, 'src/pages/EditPassword/editPassword.hbs'),
-                register: resolve(__dirname, 'src/pages/Register/register.hbs'),
-                login: resolve(__dirname, 'src/pages/Login/login.hbs'),
-                noteFound: resolve(__dirname, 'src/pages/404/404.hbs'),
-                serverError: resolve(__dirname, 'src/pages/500/500.hbs'),
+                chat: resolve(__dirname, 'src/pages/Chat/index.html'),
+                profile: resolve(__dirname, 'src/pages/Profile/index.html'),
+                editProfile: resolve(__dirname, 'src/pages/EditProfile/index.html'),
+                editPassword: resolve(__dirname, 'src/pages/EditPassword/index.html'),
+                register: resolve(__dirname, 'src/pages/Register/index.html'),
+                login: resolve(__dirname, 'src/pages/Login/index.html'),
+                noteFound: resolve(__dirname, 'src/pages/404/index.html'),
+                serverError: resolve(__dirname, 'src/pages/500/index.html'),
             },
         },
     },
