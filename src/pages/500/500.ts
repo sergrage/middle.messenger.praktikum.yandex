@@ -14,11 +14,7 @@ export default class ServerErrorPage extends Block {
             buttonText: '<span><i class="fa-solid fa-arrow-left"></i></span> Назад к чатам',
             className: 'btn btn-purple mt-3 m-auto',
             settings: {withInternalID: true},
-            'events': {
-                'click': (event: any) => {
-                    console.log(event, 7777)
-                },
-            },
+            href: '../Chat/index.html',
         });
 
         // Создание кнопки лучше вынести в конструктор, чтобы не делать это при каждом рендере
@@ -28,7 +24,6 @@ export default class ServerErrorPage extends Block {
     render(): DocumentFragment {
         return this.compile(tpl, {
             'button': this.props.button,
-            'title': 'title'
         });
     }
 }
