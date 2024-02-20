@@ -5,7 +5,7 @@ import {resolve} from 'path';
 export default defineConfig({
     // root: './src',
     plugins: [handlebars({
-        partialDirectory: resolve(__dirname, 'src/components/**/*', 'src/pages/**/*'),
+        partialDirectory: resolve(__dirname, 'src/partials'),
     })],
     build: {
         rollupOptions: {
