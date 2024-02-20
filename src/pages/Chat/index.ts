@@ -137,7 +137,7 @@ const chatMessages: ChatMessagesInterface[] = [
                 },
                 {
                     companion: true,
-                    img: '../../../static/img/blacksabbath.jpeg',
+                    img: '/static/img/blacksabbath.jpeg',
                     alt: 'blacksabbath',
                     time: '15:13',
                 },
@@ -180,7 +180,7 @@ const chatMessages: ChatMessagesInterface[] = [
                 },
                 {
                     my: true,
-                    img: '../../../static/img/savatage.jpg',
+                    img: '/static/img/savatage.jpg',
                     alt: 'savatage',
                     time: '15:13',
                 },
@@ -207,7 +207,7 @@ const chatMessages: ChatMessagesInterface[] = [
                 },
                 {
                     companion: true,
-                    img: '../../../static/img/blacksabbath.jpeg',
+                    img: '/static/img/blacksabbath.jpeg',
                     alt: 'blacksabbath',
                     time: '15:13',
                 },
@@ -250,7 +250,7 @@ const chatMessages: ChatMessagesInterface[] = [
                 },
                 {
                     my: true,
-                    img: '../../../static/img/savatage.jpg',
+                    img: '/static/img/savatage.jpg',
                     alt: 'savatage',
                     time: '15:13',
                 },
