@@ -1,7 +1,23 @@
 {
-  "extends": "airbnb", // Здесь вы указываете, что наследуетесь от набора правил
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "max-len": [2, 100],
-    "max-params": [2, 3]
+    "no-param-reassign": 0,
+    "default-param-last": "off",
+    "class-methods-use-this": "off",
+    "no-use-before-define": "off",
+    "no-shadow": "off",
+    "no-restricted-syntax": "off",
+    "no-underscore-dangle": "off",
+    "import/extensions": "off",
+    "no-console": "off",
+    "import/no-unresolved": "off",
+    "@typescript-eslint/no-unused-vars": 2
   }
 }
