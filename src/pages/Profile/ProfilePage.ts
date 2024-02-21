@@ -1,6 +1,6 @@
 import Block from "./../../core/Block";
 import ProfileField from "../../components/ProfileField/ProfileField";
-// @ts-ignore
+
 import tpl from "./profile.hbs?raw";
 import Button from "../../components/Button/Button";
 

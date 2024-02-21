@@ -1,6 +1,6 @@
 import Block from "./../../core/Block";
 import InputGroup from "../../components/InputGroup/InputGroup";
-// @ts-ignore
+
 import tpl from "./editProfile.hbs?raw";
 import Button from "../../components/Button/Button";
 
@@ -62,7 +62,6 @@ export default class EditProfile extends Block {
                             const input = this.children.inputGroup.find((input) => input.props.name === key);
                             if(input) {
                                 input.setProps({validateMessage: validateService.errorMessage()});
-                                // @ts-ignore
                                 input.setProps({showValidateError: validateService[key]});
                             }
                         }

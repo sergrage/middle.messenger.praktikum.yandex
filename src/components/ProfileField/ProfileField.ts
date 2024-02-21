@@ -1,6 +1,5 @@
 import Block from "./../../core/Block"
 
-// @ts-ignore
 import tpl from "./template.hbs?raw";
 export default class ProfileField extends Block {
     constructor(props: Record<string, unknown>) {

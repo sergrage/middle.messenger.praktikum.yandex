@@ -28,8 +28,6 @@ export default class InputGroup extends Block {
                     const val = event.target.value;
                     const validateService = new ValidateService(<string>props.name, <string>val);
                     this.setProps({validateMessage: validateService.errorMessage()});
-
-                    // @ts-ignore
                     this.setProps({showValidateError: validateService[props.name]});
                 },
             },

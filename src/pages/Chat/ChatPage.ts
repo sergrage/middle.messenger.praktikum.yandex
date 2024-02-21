@@ -1,6 +1,5 @@
 import Block from "./../../core/Block";
 
-// @ts-ignore
 import tpl from "./chat.hbs?raw";
 import ThreadsList from "../../components/ThreadsList/ThreadsList";
 import ChatMessagesWrapper from "../../components/ChatMessagesWrapper/ChatMessagesWrapper";

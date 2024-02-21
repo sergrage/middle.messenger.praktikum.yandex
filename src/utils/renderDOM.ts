@@ -5,7 +5,6 @@ export function render(query: string, block: Block) {
 
     // Можно завязаться на реализации вашего класса Block
     if (root && block) {
-        // @ts-ignore
         root.appendChild(block.getContent());
         block.dispatchComponentDidMount();
     }

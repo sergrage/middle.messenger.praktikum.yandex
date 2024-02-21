@@ -99,7 +99,6 @@ class HTTPTransport {
                 xhr.send();
             }
             else {
-                // @ts-ignore
                 xhr.send(data);
             }
         });

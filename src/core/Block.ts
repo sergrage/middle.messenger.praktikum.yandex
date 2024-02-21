@@ -36,7 +36,6 @@ export default class Block {
         };
 
 
-        // @ts-ignore
         if (props.settings?.withInternalID) {
             // Генерируем уникальный UUID V4
             this._id = makeUUID();
@@ -80,14 +79,12 @@ export default class Block {
         Object.values(this.children).forEach(child => {
             child = Array.isArray(child) ? child : [child];
             child.forEach((item) => {
-                // @ts-ignore
                 const stub = fragment.content.querySelector(`[data-id="${item._id}"]`);
                 if (stub) {
                     stub.replaceWith(item.getContent());
                 }
             })
         });
-        // @ts-ignore
         return fragment.content;
     }
 
@@ -125,7 +122,6 @@ export default class Block {
             if (events instanceof Object) {
                 Object.keys(events).forEach(eventName => {
                     if (this._element) {
-                        // @ts-ignore
                         this._element.addEventListener(eventName, events[eventName]);
                     }
                 });
@@ -139,7 +135,6 @@ export default class Block {
             if (events instanceof Object) {
                 Object.keys(events).forEach(eventName => {
                     if (this._element) {
-                        // @ts-ignore
                         this._element.removeEventListener(eventName, events[eventName]);
                     }
                 });
@@ -195,7 +190,6 @@ export default class Block {
 // Может переопределять пользователь, необязательно трогать
     render() {
         const fragment: HTMLElement = this._createDocumentElement('template');
-        // @ts-ignore
         return fragment.content;
     }
 

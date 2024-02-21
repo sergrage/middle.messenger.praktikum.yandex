@@ -1,5 +1,5 @@
 import Block from "./../../core/Block"
-// @ts-ignore
+
 import tpl from "./template.hbs?raw";
 import ChatMessages from "../СhatMessages/ChatMessages";
 import Input from "../Input/Input";

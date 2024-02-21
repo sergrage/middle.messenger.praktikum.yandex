@@ -1,6 +1,6 @@
 import Block from "./../../core/Block";
 import Button from "./../../components/Button/Button";
-// @ts-ignore
+
 import tpl from "./404.hbs?raw";
 
 // type PropsType = Record<string, unknown>;

@@ -1,6 +1,5 @@
 import Block from "./../../core/Block";
 import Button from "./../../components/Button/Button";
-// @ts-ignore
 import tpl from "./500.hbs?raw";
 
 export default class ServerErrorPage extends Block {
