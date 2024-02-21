@@ -4,13 +4,14 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+  box-shadow: 4px 4px 8px 0 rgba(34 60 80 / 20%);
   text-align: center;
 
   &__header {
     padding-top: 30px;
     color: var(--text-color);
     font-size: 20px;
+
     &-lineAfter::after {
       width: 80px;
       height: 2px;

@@ -10,7 +10,7 @@
     padding-bottom: 30px;
 
     &__input {
-      font-family: 'Open Sans', 'FontAwesome', serif;
+      font-family: "Open Sans", FontAwesome, serif;
       background: var(--gray-color);
       height: 32px;
       width: 90%;
@@ -145,7 +145,6 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-
       color: var(--text-second-color);
       font-size: 12px;
       margin: 5px 0;
@@ -160,7 +159,6 @@
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
       overflow: hidden;
-
       color: var(--text-color);
       font-size: 13px;
       font-weight: bold;
@@ -258,6 +256,7 @@
         border: none;
         border-radius: 20px;
         background: var(--gray-color);
+
         &:focus-visible {
           border: none;
           outline: none;
@@ -279,6 +278,7 @@
     }
   }
 }
+
 .massage {
   position: relative;
   padding: 10px 20px;
@@ -296,10 +296,12 @@
     padding-left: 0;
     padding-right: 0;
   }
+
   &__image {
     border-radius: 20px;
     width: 100%;
     object-fit: cover;
+
     &__time {
       border-radius: 20px;
       position: absolute;
@@ -313,6 +315,7 @@
 
   &-companion {
     background: var(--gray-color);
+
     &__time {
       color: var(--text-second-color);;
       font-size: 9px;
@@ -326,7 +329,7 @@
     position: relative;
     background: #E4EDFD;
     margin-left: auto;
-    border-radius: 10px 10px 0 10px;
+    border-radius: 10px 10px 0;
     margin-right: 10px;
 
     &__check {

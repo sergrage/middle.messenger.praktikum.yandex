@@ -1,23 +1,24 @@
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
 * {
   font-family: 'Open Sans', sans-serif;
 }
-// Fontawesome
-@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
 :root {
     --purple-color: #B27FB2;
     --blue-color: #3369F3;
-    --gray-color: #EFEFEF;
-    --white-color: #FFFFFF;
-    --text-color: #1E1E1E;
-    --threads-bg-color: #FBFBFB;
+    --gray-color: #EFE;
+    --white-color: #FFF;
+    --text-color: #1E1;
+    --threads-bg-color: #FBF;
     --thread-active-bg-color: #F0F8FF;
-    --text-second-color: #999999;
+    --text-second-color: #999;
 }
 
 .m-0 {
   margin: 0 !important;
 }
+
 .p-0 {
   padding: 0 !important;
 }
@@ -25,6 +26,7 @@
 .ml-0 {
   margin-left: 0 !important;
 }
+
 .pl-0 {
   padding-left: 0 !important;
 }
@@ -42,6 +44,7 @@
   width: 100%;
   max-width: 1920px;
   height: 100vh;
+
   &-center {
     justify-content: center;
     align-items: center;
@@ -58,21 +61,26 @@
   transition: all .3s;
   text-decoration: none;
   width: fit-content;
+
   &-purple {
     background: var(--purple-color);
-    color: #ffffff;
+    color: #fff;
+
     &:hover {
       background: #8e658e;
     }
   }
+
   &-big {
     width: 100%;
   }
+
   &-text {
     color: #3369F3;
     font-size: 11px;
     background: transparent;
     font-weight: bold;
+
     &-red {
       color: red;
     }

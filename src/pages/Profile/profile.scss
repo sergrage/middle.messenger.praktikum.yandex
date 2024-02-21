@@ -2,11 +2,6 @@
   width: 600px;
   text-align: center;
 
-  &__avatar {
-
-
-  }
-
   &__name {
     font-size: 16px;
     padding-bottom: 20px;
@@ -27,6 +22,7 @@
       font-weight: bold;
       color: var(--text-color);
     }
+
     &__value {
       color: var(--text-second-color);
     }
@@ -36,12 +32,14 @@
       color: var(--text-color);
       margin: 15px;
     }
+
     &__input {
       flex: 1;
       border: none;
       color: var(--text-second-color);
       text-align: right;
       margin: 15px;
+
       &:focus-visible {
         border: none;
         outline: none;
