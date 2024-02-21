@@ -3,7 +3,6 @@ import './InputGroup.scss';
 
 import ValidateService from '../../core/ValidateService';
 
-// @ts-ignore
 import tpl from './template.hbs?raw';
 import Input from '../Input/Input';
 
