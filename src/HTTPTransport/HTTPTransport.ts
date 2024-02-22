@@ -12,7 +12,7 @@ interface OptionsI {
     data?: Record<string, string>
 }
 
-function queryStringify(urlPart: Record<string, string>) {
+function queryStringify(urlPart: { [key: string]: string; } = {}) {
   let result = '';
   let char = '?';
   if (Object.keys(urlPart).length === 0) {
@@ -85,10 +85,10 @@ export default class HTTPTransport {
 
       if (method === METHODS.GET && data) {
         xhr.send(queryStringify(data));
-      } else if (method === METHODS.GET) {
+      } else if (!data) {
         xhr.send();
-      } else {
-        xhr.send(data);
+      } else if (data) {
+        // xhr.send(data);
       }
     });
   };
