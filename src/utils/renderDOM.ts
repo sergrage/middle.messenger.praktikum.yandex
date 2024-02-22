@@ -5,7 +5,7 @@ export default function render(query: string, block: Block) {
 
   // Можно завязаться на реализации вашего класса Block
   if (root && block) {
-    root.appendChild(block.getContent());
+    root.appendChild(block.getContent()!);
     block.dispatchComponentDidMount();
   }
 
