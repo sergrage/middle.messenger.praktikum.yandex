@@ -88,7 +88,8 @@ export default class HTTPTransport {
       } else if (!data) {
         xhr.send();
       } else if (data) {
-        // xhr.send(data);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(data));
       }
     });
   };
