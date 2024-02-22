@@ -1,7 +1,7 @@
 import Block from '../../core/Block';
 import Button from '../../components/Button/Button';
 
-import {tpl} from './template';
+import { tpl } from './template';
 
 // type PropsType = Record<string, unknown>;
 
@@ -20,7 +20,7 @@ export default class TestPage extends Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   }
 
-  render()  {
+  render() {
     return this.compile(tpl, {
       button: this.props.button,
     });

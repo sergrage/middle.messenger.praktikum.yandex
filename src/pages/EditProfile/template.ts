@@ -5,4 +5,4 @@ export const tpl = `<div class="profile">
     {{{button}}}
     </form>
     {{{link}}}
-</div>`
+</div>`;

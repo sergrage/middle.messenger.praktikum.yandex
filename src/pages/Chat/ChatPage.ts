@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 
-import {tpl} from './template';
+import { tpl } from './template';
 import ThreadsList from '../../components/ThreadsList/ThreadsList';
 import ChatMessagesWrapper from '../../components/ChatMessagesWrapper/ChatMessagesWrapper';
 import Button from '../../components/Button/Button';

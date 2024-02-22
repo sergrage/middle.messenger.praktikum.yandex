@@ -1,4 +1,4 @@
-export const tpl= `<div class="chat__content__body">
+export const tpl = `<div class="chat__content__body">
     {{#if chatMessages.length}}
         <div class="chat__content__head">
             <div class="chat__content__head__info">
@@ -34,4 +34,4 @@ export const tpl= `<div class="chat__content__body">
             <p class="chat__content__no-message">Выберите чат чтобы отправить сообщение</p>
         </div>
     {{/if}}
-</div>`
+</div>`;

@@ -1,7 +1,7 @@
 import Block from '../../core/Block';
 import InputGroup from '../../components/InputGroup/InputGroup';
 
-import {tpl} from './template';
+import { tpl } from './template';
 import Button from '../../components/Button/Button';
 
 import ValidateService from '../../core/ValidateService';

@@ -7,4 +7,4 @@ export const tpl = `<div class="chat__threads">
     </div>
     {{{threadsList}}}
 </div>
-    {{{chatMessagesWrapper}}}`
+    {{{chatMessagesWrapper}}}`;

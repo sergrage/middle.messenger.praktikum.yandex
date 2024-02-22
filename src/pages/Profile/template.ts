@@ -12,4 +12,4 @@ export const tpl = `<div class="profile">
         {{{linkExit}}}
     </div>
     {{{linkChats}}}
-</div>`
+</div>`;

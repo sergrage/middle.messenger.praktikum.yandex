@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 
-import {tpl} from './template';
+import { tpl } from './template';
 import ChatMessages from '../СhatMessages/ChatMessages';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
@@ -69,8 +69,8 @@ export default class ChatMessagesWrapper extends Block {
   }
 
   render(): DocumentFragment | undefined {
-      return this.compile(tpl, {
-          chatMessages: this.props.chatMessages,
-      });
+    return this.compile(tpl, {
+      chatMessages: this.props.chatMessages,
+    });
   }
 }

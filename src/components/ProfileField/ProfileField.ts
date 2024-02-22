@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 
-import {tpl} from './template';
+import { tpl } from './template';
 
 export default class ProfileField extends Block {
   constructor(props: Record<string, unknown>) {

@@ -3,7 +3,7 @@ import './InputGroup.scss';
 
 import ValidateService from '../../core/ValidateService';
 
-import {tpl} from './template';
+import { tpl } from './template';
 import Input from '../Input/Input';
 
 export default class InputGroup extends Block {

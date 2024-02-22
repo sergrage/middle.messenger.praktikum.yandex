@@ -1,1 +1,1 @@
-export const tpl= ``;
+export const tpl = '';

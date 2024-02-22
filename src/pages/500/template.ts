@@ -3,4 +3,4 @@ export const tpl = `<div class="notFound">
     <h1 class="notFound__title">500</h1>
     <p class="notFound__text">Сейчас <span class="notFound__text notFound__text-purple">рванет</span> :)</p>
     {{{ button }}}
-</div>`
+</div>`;

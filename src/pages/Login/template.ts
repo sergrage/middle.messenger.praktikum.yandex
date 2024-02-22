@@ -9,4 +9,4 @@ export const tpl = `<div class="login">
             {{{ link }}}
         </div>
     </form>
-</div>`
+</div>`;
