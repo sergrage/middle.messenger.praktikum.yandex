@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 import Button from '../../components/Button/Button';
-import tpl from './500.hbs?raw';
+import {tpl} from './template';
 
 export default class ServerErrorPage extends Block {
   constructor(props: Record<string, unknown>) {
@@ -18,7 +18,7 @@ export default class ServerErrorPage extends Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   }
 
-  render(): DocumentFragment {
+  render() {
     return this.compile(tpl, {
       button: this.props.button,
     });

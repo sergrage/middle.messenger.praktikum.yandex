@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 
-import tpl from './template.hbs?raw';
+import {tpl} from './template';
 
 export default class Input extends Block {
   constructor(props: Record<string, unknown>) {
@@ -13,7 +13,7 @@ export default class Input extends Block {
     if (props.value) { this._element?.setAttribute('value', <string>props.value); }
   }
 
-  render(): DocumentFragment {
+  render() {
     return this.compile(tpl, {
       showValidateError: this.props.showValidateError,
       validateMessage: this.props.validateMessage,

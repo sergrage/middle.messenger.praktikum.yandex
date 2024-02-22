@@ -1,4 +1,4 @@
-<div class="login">
+export const tpl = `<div class="login">
     <h1 class="login__header login__header-lineAfter">Авторизация</h1>
     <form action="" class="login__form">
         <div class="">
@@ -9,4 +9,4 @@
             {{{ link }}}
         </div>
     </form>
-</div>
+</div>`

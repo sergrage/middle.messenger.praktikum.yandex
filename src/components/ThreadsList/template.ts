@@ -1,4 +1,4 @@
-<div class="chat__thread {{#if active}}chat__thread-active{{/if}}">
+export const tpl= `<div class="chat__thread {{#if active}}chat__thread-active{{/if}}">
     <div class="chat__thread__info">
         <div class="chat__thread__avatar"></div>
         <div class="chat__thread__title">
@@ -17,4 +17,4 @@
             <div class="chat__thread__new">{{new}}</div>
         {{/if}}
     </div>
-</div>
+</div>`

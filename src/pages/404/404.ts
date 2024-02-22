@@ -1,7 +1,7 @@
 import Block from '../../core/Block';
 import Button from '../../components/Button/Button';
 
-import tpl from './404.hbs?raw';
+import {tpl} from './template';
 
 // type PropsType = Record<string, unknown>;
 
@@ -17,12 +17,10 @@ export default class TestPage extends Block {
       settings: { withInternalID: true },
       href: '../Chat/index.html',
     });
-
-    // Создание кнопки лучше вынести в конструктор, чтобы не делать это при каждом рендере
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   }
 
-  render(): DocumentFragment {
+  render()  {
     return this.compile(tpl, {
       button: this.props.button,
     });

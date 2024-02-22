@@ -3,7 +3,7 @@ import './InputGroup.scss';
 
 import ValidateService from '../../core/ValidateService';
 
-import tpl from './template.hbs?raw';
+import {tpl} from './template';
 import Input from '../Input/Input';
 
 export default class InputGroup extends Block {
@@ -26,14 +26,14 @@ export default class InputGroup extends Block {
           const val = event.target.value;
           const validateService = new ValidateService(<string>props.name, <string>val);
           this.setProps({ validateMessage: validateService.errorMessage() });
-          this.setProps({ showValidateError: validateService[props.name] });
+          this.setProps({ showValidateError: validateService.validate[<string>props.name] });
         },
       },
     });
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   }
 
-  render(): DocumentFragment {
+  render() {
     return this.compile(tpl, {
       title: this.props.title,
       labelClassName: this.props.labelClassName,

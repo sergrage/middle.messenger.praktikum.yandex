@@ -1,4 +1,4 @@
-<div class="chat__content__body__day">
+export const tpl= `<div class="chat__content__body__day">
     <div class="chat__content__body__day__date">
         {{day}}
     </div>
@@ -42,4 +42,4 @@
             {{/if}}
         {{/if}}
     {{/each}}
-</div>
+</div>`

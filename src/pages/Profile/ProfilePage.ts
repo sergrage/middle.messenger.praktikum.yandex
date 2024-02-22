@@ -1,7 +1,7 @@
 import Block from '../../core/Block';
 import ProfileField from '../../components/ProfileField/ProfileField';
 
-import tpl from './profile.hbs?raw';
+import {tpl} from './template';
 import Button from '../../components/Button/Button';
 
 interface DataInterface {
@@ -51,7 +51,7 @@ export default class ProfilePage extends Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   }
 
-  render(): DocumentFragment {
+  render() {
     return this.compile(tpl, {});
   }
 }

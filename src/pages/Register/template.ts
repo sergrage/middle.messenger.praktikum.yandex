@@ -1,4 +1,4 @@
-<div class="register">
+export const tpl = `<div class="register">
     <h1 class="register__header register__header-lineAfter">Регистрация</h1>
     <form action="" class="register__form">
         <div class="">
@@ -9,4 +9,4 @@
             {{{ link }}}
         </div>
     </form>
-</div>
+</div>`

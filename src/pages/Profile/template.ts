@@ -1,4 +1,4 @@
-<div class="profile">
+export const tpl = `<div class="profile">
     <img src="/icons/photo-icon.svg" alt="avatar" class="profile__avatar">
     <h4 class="profile__name">Иван</h4>
     {{{profileFields}}}
@@ -12,4 +12,4 @@
         {{{linkExit}}}
     </div>
     {{{linkChats}}}
-</div>
+</div>`

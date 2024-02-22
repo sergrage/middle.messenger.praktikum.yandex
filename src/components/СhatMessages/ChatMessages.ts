@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 
-import tpl from './template.hbs?raw';
+import {tpl} from './template';
 
 export default class ChatMessages extends Block {
   constructor(props: Record<string, unknown>) {
@@ -11,7 +11,7 @@ export default class ChatMessages extends Block {
     }
   }
 
-  render(): DocumentFragment {
+  render() {
     return this.compile(tpl, {
       messages: this.props.messages,
     });

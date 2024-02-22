@@ -1,7 +1,7 @@
 import Block from '../../core/Block';
 import InputGroup from '../../components/InputGroup/InputGroup';
 
-import tpl from './register.hbs?raw';
+import {tpl} from './template';
 import Button from '../../components/Button/Button';
 
 import ValidateService from '../../core/ValidateService';
@@ -57,7 +57,7 @@ export default class RegisterPage extends Block {
               const input = this.children.inputGroup.find((element) => element.props.name === key);
               if (input) {
                 input.setProps({ validateMessage: validateService.errorMessage() });
-                input.setProps({ showValidateError: validateService[key] });
+                input.setProps({ showValidateError: validateService.validate[key] });
               }
             }
           }
@@ -77,7 +77,7 @@ export default class RegisterPage extends Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   }
 
-  render(): DocumentFragment {
+  render() {
     return this.compile(tpl, {
       button: this.props.button,
       link: this.props.link,

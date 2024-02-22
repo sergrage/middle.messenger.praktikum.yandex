@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 
-import tpl from './chat.hbs?raw';
+import {tpl} from './template';
 import ThreadsList from '../../components/ThreadsList/ThreadsList';
 import ChatMessagesWrapper from '../../components/ChatMessagesWrapper/ChatMessagesWrapper';
 import Button from '../../components/Button/Button';
@@ -55,7 +55,7 @@ export default class ChatPage extends Block {
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   }
 
-  render(): DocumentFragment {
+  render() {
     return this.compile(tpl, {});
   }
 }

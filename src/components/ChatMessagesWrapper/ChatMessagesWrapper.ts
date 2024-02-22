@@ -1,6 +1,6 @@
 import Block from '../../core/Block';
 
-import tpl from './template.hbs?raw';
+import {tpl} from './template';
 import ChatMessages from '../СhatMessages/ChatMessages';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
@@ -66,12 +66,11 @@ export default class ChatMessagesWrapper extends Block {
     });
 
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
-    console.log();
   }
 
-  render(): DocumentFragment {
-    return this.compile(tpl, {
-      chatMessages: this.props.chatMessages,
-    });
+  render(): DocumentFragment | undefined {
+      return this.compile(tpl, {
+          chatMessages: this.props.chatMessages,
+      });
   }
 }

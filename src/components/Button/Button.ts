@@ -1,6 +1,5 @@
 import Block from '../../core/Block';
-
-import tpl from './template.hbs?raw';
+import {tpl} from './template';
 
 export default class Button extends Block {
   constructor(props: Record<string, unknown>) {
@@ -22,7 +21,7 @@ export default class Button extends Block {
     }
   }
 
-  render(): DocumentFragment {
+  render() {
     return this.compile(tpl, {
       buttonText: this.props.buttonText,
       type: this.props.type,
