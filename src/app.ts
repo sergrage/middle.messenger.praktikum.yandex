@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     .start();
 
   const { pathname } = window.location;
-  const res = await AuthAPI.userInfo();
+  const res: any = await AuthAPI.userInfo();
 
   if (res.id === undefined && ['/settings', '/change-password', '/messenger'].includes(pathname)) {
     router.go('/sign-in');
