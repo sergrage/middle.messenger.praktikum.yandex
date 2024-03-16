@@ -8,14 +8,17 @@ import UserController from './UserController';
 
 class LoginController {
   public signIn(payload: Indexed) {
+    const router = new Router('.app');
     AuthAPI.signIn(payload).then((res) => {
       if ((<any>res).reason) {
+        if ((<any>res).reason === 'User already in system') {
+          router.go('/messenger');
+          return;
+        }
         store.set('loginPage.showAlert', true);
         store.set('loginPage.alertText', (<any>res).reason);
       } else {
-        const router = new Router('.app');
         router.go('/messenger');
-
         UserController.userInfo();
       }
     });
