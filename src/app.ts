@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   router
     .use('/', LoginPage, {
       title: 'Страница регистрации',
-      data: registerData,
+      data: loginData,
     })
     .use('/messenger', ChatPage, {
       title: 'Чат',
