@@ -1,11 +1,11 @@
 import Block from '../../core/Block';
 import Button from '../../components/Button/Button';
+import './404.scss';
 
 import { tpl } from './template';
+import Router from "../../router/Router";
 
-// type PropsType = Record<string, unknown>;
-
-export default class TestPage extends Block {
+export default class NotFoundPage extends Block {
   constructor(props: Record<string, unknown>) {
     // Создаём враппер дом-элемент
     super('div', props);
@@ -15,7 +15,13 @@ export default class TestPage extends Block {
       buttonText: '<span><i class="fa-solid fa-arrow-left"></i></span> Назад к чатам',
       className: 'btn btn-purple mt-3 m-auto',
       settings: { withInternalID: true },
-      href: '../Chat/index.html',
+        events: {
+            click: (event: any) => {
+                event.preventDefault();
+                const router = new Router(".app");
+                router.go('/messenger');
+            },
+        },
     });
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   }

@@ -11,9 +11,13 @@
 </head>
 <body>
 <main class="container {{center}}">
-    {{> @partial-block}}</main>
+    <div class="app"></div>
+    {{> @partial-block}}
+</main>
 </body>
 <script type="module">
     import 'normalize.css';
 </script>
+
+<script type="module" src="../../app.ts"></script>
 </html>

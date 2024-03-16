@@ -2,7 +2,7 @@ import Block from '../../core/Block';
 
 import { tpl } from './template';
 
-export default class ChatMessages extends Block {
+export default class ChatMessage extends Block {
   constructor(props: Record<string, unknown>) {
     // Создаём враппер дом-элемент button
     super('div', props);
@@ -13,7 +13,7 @@ export default class ChatMessages extends Block {
 
   render() {
     return this.compile(tpl, {
-      messages: this.props.messages,
+      message: this.props.message,
     });
   }
 }

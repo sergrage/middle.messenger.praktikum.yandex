@@ -1,4 +1,4 @@
-import HTTPTransport from '../HTTPTransport/HTTPTransport';
+import HTTPTransport from './HTTPTransport';
 
 const HTTPTransportExample = new HTTPTransport();
 

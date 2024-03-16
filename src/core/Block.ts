@@ -28,7 +28,7 @@ export default class Block {
 
   _id: string | null = null;
 
-  constructor(tagName: string = 'div', propsAndChildren: PropsType) {
+  constructor(tagName: string , propsAndChildren: PropsType) {
     const eventBus = new EventBus();
 
     const { children, props } = this._getChildren(propsAndChildren);
@@ -176,6 +176,7 @@ export default class Block {
     if (!nextProps) {
       return;
     }
+
     Object.assign(this.props, nextProps);
     this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   };
@@ -244,5 +245,12 @@ export default class Block {
       element.setAttribute('data-id', this._id);
     }
     return element;
+  }
+
+  hide() {
+      console.log('hide')
+      if(this._element) {
+          this._element.remove();
+      }
   }
 }

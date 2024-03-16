@@ -35,6 +35,11 @@
   margin-top: 48px !important;
 }
 
+.mx-1 {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
 .m-auto {
   margin: 0 auto;
 }
@@ -85,4 +90,42 @@
       color: red;
     }
   }
+}
+
+.alert {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.badge-btn {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    &-main {
+        background-color:  #0d6efd!important;
+    }
+    &-danger {
+        background-color: #dc3545!important;
+        cursor: pointer;
+    }
 }

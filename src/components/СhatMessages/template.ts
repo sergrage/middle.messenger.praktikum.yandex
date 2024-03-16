@@ -1,8 +1,10 @@
 export const tpl = `<div class="chat__content__body__day">
+<p>!!!!!</p>
     <div class="chat__content__body__day__date">
         {{day}}
     </div>
     {{#each messages}}
+    {{content}}
         {{#if img}}
             {{#if companion}}
                 <div class="massage massage__imageWrap">

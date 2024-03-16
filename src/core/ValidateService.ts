@@ -54,7 +54,7 @@ export default class ValidateService {
       newPasswordRepeat: !(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,40}$/.test(this.value)),
       email: !(/^[\w-_.]+@([\w-]+\.)+[\w-]{2,4}$/.test(this.value)),
       first_name: !(/^[A-ZА-Я](\D)[a-zа-я-]+$/.test(this.value)),
-      display_name: !(/^[A-ZА-Я](\D)[a-zа-я-]+$/.test(this.value)),
+      display_name: !(/^[A-ZА-Яa-zа-я-1-9]+$/.test(this.value)),
       second_name: !(/^[A-ZА-Я](\D)[a-zа-я-]+$/.test(this.value)),
       phone: !(/^[+]?[0-9]{10,15}$/.test(this.value)),
     };
