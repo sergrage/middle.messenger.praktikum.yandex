@@ -10,8 +10,6 @@ import loginData from './pages/Login/loginData';
 import profileData from './pages/Profile/profileData';
 import editPasswordData from './pages/EditPassword/editPasswordData';
 
-import { chatThreads, chatMessages } from './pages/Chat/chatData';
-
 import LoginPage from './pages/Login/LoginPage';
 import EditPassword from './pages/EditPassword/EditPassword';
 import AuthAPI from './api/auth-api';
@@ -25,10 +23,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     })
     .use('/messenger', ChatPage, {
       title: 'Чат',
-      data: {
-        chatThreads,
-        chatMessages,
-      },
     })
     .use('/settings', EditProfile, {
       title: 'Настройки профиля',
@@ -52,7 +46,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const { pathname } = window.location;
   const res = await AuthAPI.userInfo();
-  if (res && ['/settings', '/change-password', '/messenger'].includes(pathname)) {
+
+  if (res.id === undefined && ['/settings', '/change-password', '/messenger'].includes(pathname)) {
     router.go('/sign-in');
   }
 });
