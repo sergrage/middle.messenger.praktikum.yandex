@@ -25,3 +25,4 @@ interface DataInterface {
 ];
 
 export default data;
+

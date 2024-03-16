@@ -108,3 +108,4 @@ function mapUserToProps(state: Indexed) {
 }
 
 export default connect(LoginPage, mapUserToProps);
+

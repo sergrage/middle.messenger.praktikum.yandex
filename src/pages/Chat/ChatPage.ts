@@ -99,7 +99,7 @@ class ChatPage extends Block {
 
                         ChatController.getUsers().then(res => {
                             store.set('chat.users', res);
-                            store.getState().chat.users.forEach((item) => {
+                            store.getState().chat.users.forEach((item: Record<string , unknown> ) => {
                                 item.isMe = item.id === store.getState().user.id
                             })
                         })
@@ -152,3 +152,4 @@ function mapUserToProps(state: Indexed) {
 }
 
 export default connect(ChatPage, mapUserToProps);
+

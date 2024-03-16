@@ -16,9 +16,7 @@ import {chatMessages} from "./pages/Chat/chatData";
 import LoginPage from "./pages/Login/LoginPage";
 import EditPassword from "./pages/EditPassword/EditPassword";
 
-
 const router = new Router(".app");
-
 router
     .use("/", RegisterPage , {
         'title' : 'Страница регистрации',

@@ -19,4 +19,4 @@ function set(object: Indexed | unknown, path: string, value: unknown): Indexed |
     return merge(object as Indexed, result);
 }
 
-export default set
+export default set;

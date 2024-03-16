@@ -70,4 +70,4 @@ function cloneDeep<T extends object = object>(obj: T) {
     })(obj);
 }
 
-export default cloneDeep
+export default cloneDeep;

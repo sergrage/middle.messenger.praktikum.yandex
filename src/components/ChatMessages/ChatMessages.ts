@@ -10,8 +10,6 @@ import store from "../../store/Store";
 import {Indexed} from "../../types/types";
 import connect from "../../core/HOC";
 import ChatController from "../../controllers/ChatController";
-import ThreadsList from "../ThreadsList/ThreadsList";
-
 
 class ChatMessages extends Block {
     constructor(props: Record<string, unknown>) {
@@ -90,10 +88,10 @@ class ChatMessages extends Block {
                             formDataObj.userId
                         ],
                         "chatId": store.getState().chat.chat_id
-                    }).then((res) => {
+                    }).then(() => {
                         ChatController.getUsers().then(res => {
                             store.set('chat.users', res);
-                            store.getState().chat.users.forEach((item) => {
+                            store.getState().chat.users.forEach((item: Record<string, unknown>) => {
                                 item.isMe = (item.id === store.getState().user.id)
                             })
                         })
@@ -110,10 +108,9 @@ class ChatMessages extends Block {
 
 
     render(): DocumentFragment | undefined {
-
         if (store.getState().chat.users.length > 0) {
             this.children.chatUsersBtns = store.getState().chat.users
-                .map((item) => {
+                .map((item: userI) => {
                         const classQ = 'mx-1 badge-btn ' + (item.isMe ? 'badge-btn-main' : 'badge-btn-danger');
                         const text = item.login + (item.isMe ? '' : ' <i class="fa-solid fa-user-xmark"></i>');
                         return new Button({
@@ -132,10 +129,10 @@ class ChatMessages extends Block {
                                                 parseInt(deleteUser)
                                             ],
                                             "chatId": store.getState().chat.chat_id
-                                        }).then((res) => {
+                                        }).then(() => {
                                             ChatController.getUsers().then(res => {
                                                 store.set('chat.users', res);
-                                                store.getState().chat.users.forEach((item) => {
+                                                store.getState().chat.users.forEach((item: Record<string, unknown>) => {
                                                     item.isMe = (item.id === store.getState().user.id)
                                                 })
                                             })
@@ -150,13 +147,23 @@ class ChatMessages extends Block {
 
 
         return this.compile(tpl, {
-            chatMessages: store.getState().chatMessages.sort((a, b) => b.id - a.id),
+            chatMessages: store.getState().chatMessages.sort((a:sortedI, b:sortedI) => b.id - a.id),
             chatTitle: store.getState().chat.title,
             userId: store.getState().user.id,
             chatUsers: store.getState().chat.users,
             chatUsersBtns: this.children.chatUsersBtns,
         });
     }
+}
+
+interface sortedI {
+    id: number
+}
+
+interface userI {
+    id: number,
+    login: string,
+    isMe?: boolean,
 }
 
 function mapUserToProps(state: Indexed) {

@@ -47,3 +47,4 @@ const registerData: DataInterface[] = [
 ];
 
 export default registerData;
+

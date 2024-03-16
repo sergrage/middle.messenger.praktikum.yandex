@@ -147,3 +147,4 @@ function mapUserToProps(state: Indexed) {
 }
 
 export default connect(EditProfile, mapUserToProps);
+

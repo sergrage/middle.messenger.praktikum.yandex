@@ -23,3 +23,4 @@ const data: DataInterface[] = [
 ];
 
 export default data;
+

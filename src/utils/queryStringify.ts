@@ -54,4 +54,4 @@ function isPlainObject(value: unknown): boolean {
         && Object.prototype.toString.call(value) === '[object Object]';
 }
 
-export default queryStringify
+export default queryStringify;
