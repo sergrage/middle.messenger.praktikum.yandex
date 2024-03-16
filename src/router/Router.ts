@@ -7,7 +7,7 @@ interface OptionsInterface {
 }
 
 class Router {
-  routes: Route[] | undefined;
+  routes: Route[] = [];
 
   history: any;
 
@@ -35,9 +35,7 @@ class Router {
       data: options.data,
       rootQuery: this._rootQuery,
     });
-    if (this.routes) {
-      this.routes.push(route);
-    }
+    this.routes.push(route);
     return this;
   }
 
