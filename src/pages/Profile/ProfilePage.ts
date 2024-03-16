@@ -1,4 +1,4 @@
-import "./profile.scss";
+import './profile.scss';
 
 import Block from '../../core/Block';
 import ProfileField from '../../components/ProfileField/ProfileField';

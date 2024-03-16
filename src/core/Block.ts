@@ -28,7 +28,7 @@ export default class Block {
 
   _id: string | null = null;
 
-  constructor(tagName: string , propsAndChildren: PropsType) {
+  constructor(tagName: string, propsAndChildren: PropsType) {
     const eventBus = new EventBus();
 
     const { children, props } = this._getChildren(propsAndChildren);
@@ -248,9 +248,9 @@ export default class Block {
   }
 
   hide() {
-      console.log('hide')
-      if(this._element) {
-          this._element.remove();
-      }
+    console.log('hide');
+    if (this._element) {
+      this._element.remove();
+    }
   }
 }

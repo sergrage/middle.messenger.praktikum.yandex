@@ -1,15 +1,15 @@
 function trim(str: string, symbols: string = '') {
-    let result = '';
+  let result = '';
 
-    const trimed = str.trim().replace(/[^\w\s]/gi, '');
+  const trimed = str.trim().replace(/[^\w\s]/gi, '');
 
-    const charSet = new Set(...symbols);
-    for(const char of trimed) {
-        if(!charSet.has(char)){
-            result += char;
-        }
+  const charSet = new Set(...symbols);
+  for (const char of trimed) {
+    if (!charSet.has(char)) {
+      result += char;
     }
-    return result;
+  }
+  return result;
 }
 
 export default trim;

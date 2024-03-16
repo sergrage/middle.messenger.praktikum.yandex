@@ -7,20 +7,19 @@ interface DataInterface {
 }
 
 const data: DataInterface[] = [
-    {
-        title: 'Логин',
-        for: 'login',
-        name: 'login',
-        type: 'text',
-    },
-    {
-        title: 'Пароль',
-        for: 'password',
-        name: 'password',
-        type: 'password',
-        subClass: 'inputGroup__input-purple',
-    },
+  {
+    title: 'Логин',
+    for: 'login',
+    name: 'login',
+    type: 'text',
+  },
+  {
+    title: 'Пароль',
+    for: 'password',
+    name: 'password',
+    type: 'password',
+    subClass: 'inputGroup__input-purple',
+  },
 ];
 
 export default data;
-
