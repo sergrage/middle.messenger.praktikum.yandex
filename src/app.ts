@@ -14,11 +14,12 @@ import { chatThreads, chatMessages } from './pages/Chat/chatData';
 
 import LoginPage from './pages/Login/LoginPage';
 import EditPassword from './pages/EditPassword/EditPassword';
+import AuthAPI from "./api/auth-api";
 
 window.addEventListener('DOMContentLoaded', async () => {
   const router = new Router('.app');
   router
-    .use('/', RegisterPage, {
+    .use('/', LoginPage, {
       title: 'Страница регистрации',
       data: registerData,
     })
@@ -48,4 +49,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     .use('/404', NotFoundPage, { title: 'Страница не найдена' })
     .use('/505', ServerErrorPage, { title: 'Ошибка сервера' })
     .start();
+
+    const { pathname } = window.location;
+    const res = await AuthAPI.userInfo();
+    if (res && ['/settings', '/change-password', '/messenger'].includes(pathname)) {
+        router.go('/sign-in');
+        return;
+    }
+
+
+
+
 });

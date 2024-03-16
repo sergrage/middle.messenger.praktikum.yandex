@@ -50,11 +50,6 @@ class Router {
   _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
 
-    // if (store.getState().user.id === undefined && ['/settings', '/change-password', '/messenger'].includes(pathname)) {
-    //   this.go('/sign-in');
-    //   return;
-    // }
-
     if (route === undefined) {
       this.go('/404');
     } else {
