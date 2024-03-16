@@ -15,37 +15,37 @@ import { chatThreads, chatMessages } from './pages/Chat/chatData';
 import LoginPage from './pages/Login/LoginPage';
 import EditPassword from './pages/EditPassword/EditPassword';
 
-const router = new Router('.app');
-router
-  .use('/', RegisterPage, {
-    title: 'Страница регистрации',
-    data: registerData,
-  })
-  .use('/messenger', ChatPage, {
-    title: 'Чат',
-    data: {
-      chatThreads,
-      chatMessages,
-    },
-  })
-  .use('/settings', EditProfile, {
-    title: 'Настройки профиля',
-    data: profileData,
-  })
-  .use('/change-password', EditPassword, {
-    title: 'Сменить пароль',
-    data: editPasswordData,
-  })
-  .use('/sign-up', RegisterPage, {
-    title: 'Страница регистрации',
-    data: registerData,
-  })
-  .use('/sign-in', LoginPage, {
-    title: 'Страница входа',
-    data: loginData,
-  })
-  .use('/404', NotFoundPage, { title: 'Страница не найдена' })
-  .use('/505', ServerErrorPage, { title: 'Ошибка сервера' })
-  .start();
-
-
+window.addEventListener('DOMContentLoaded', async () => {
+  const router = new Router('.app');
+  router
+    .use('/', RegisterPage, {
+      title: 'Страница регистрации',
+      data: registerData,
+    })
+    .use('/messenger', ChatPage, {
+      title: 'Чат',
+      data: {
+        chatThreads,
+        chatMessages,
+      },
+    })
+    .use('/settings', EditProfile, {
+      title: 'Настройки профиля',
+      data: profileData,
+    })
+    .use('/change-password', EditPassword, {
+      title: 'Сменить пароль',
+      data: editPasswordData,
+    })
+    .use('/sign-up', RegisterPage, {
+      title: 'Страница регистрации',
+      data: registerData,
+    })
+    .use('/sign-in', LoginPage, {
+      title: 'Страница входа',
+      data: loginData,
+    })
+    .use('/404', NotFoundPage, { title: 'Страница не найдена' })
+    .use('/505', ServerErrorPage, { title: 'Ошибка сервера' })
+    .start();
+});
