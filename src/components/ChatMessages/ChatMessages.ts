@@ -32,7 +32,7 @@ class ChatMessages extends Block {
       buttonText: '<span><i class="fa-solid fa-right-from-bracket"></i></span>',
       settings: { withInternalID: true },
       events: {
-        click: (event: any) => {
+        click: (event: Event) => {
           event.preventDefault();
           LogoutController.logout();
         },
@@ -45,23 +45,26 @@ class ChatMessages extends Block {
       settings: { withInternalID: true },
       type: 'submit',
       events: {
-        click: (event: any) => {
+        click: (event: Event) => {
           event.preventDefault();
-          const form = event.target.closest('form');
-          const data = new FormData(form);
-          const formDataObj: Record<string, string> = {};
-          data.forEach((value, key) => {
-            if (typeof value === 'string') {
-              (formDataObj[key] = value);
+          const target = event.target as HTMLElement;
+          if (target) {
+            const form = target.closest('form') as HTMLFormElement;
+            const data = new FormData(form);
+            const formDataObj: Record<string, string> = {};
+            data.forEach((value, key) => {
+              if (typeof value === 'string') {
+                (formDataObj[key] = value);
+              }
+            });
+            if (formDataObj.message.length > 0) {
+              store.getState().chat.connection.send({
+                content: formDataObj.message,
+                type: 'message',
+              });
+              form.reset();
             }
-          });
-
-          store.getState().chat.connection.send({
-            content: formDataObj.message,
-            type: 'message',
-          });
-
-          form.reset();
+          }
         },
       },
     });
@@ -71,32 +74,35 @@ class ChatMessages extends Block {
       settings: { withInternalID: true },
       type: 'submit',
       events: {
-        click: (event: any) => {
+        click: (event: Event) => {
           event.preventDefault();
-          const form = event.target.closest('form');
-          const data = new FormData(form);
-          const formDataObj: Record<string, string> = {};
-          data.forEach((value, key) => {
-            if (typeof value === 'string') {
-              (formDataObj[key] = value);
-            }
-          });
-
-          ChatController.addUserToChat({
-            users: [
-              formDataObj.userId,
-            ],
-            chatId: store.getState().chat.chat_id,
-          }).then(() => {
-            ChatController.getUsers().then((res) => {
-              store.set('chat.users', res);
-              store.getState().chat.users.forEach((item: Record<string, unknown>) => {
-                item.isMe = (item.id === store.getState().user.id);
-              });
+          const target = event.target as HTMLElement;
+          if (target) {
+            const form = target.closest('form') as HTMLFormElement;
+            const data = new FormData(form);
+            const formDataObj: Record<string, string> = {};
+            data.forEach((value, key) => {
+              if (typeof value === 'string') {
+                (formDataObj[key] = value);
+              }
             });
-          });
 
-          form.reset();
+            ChatController.addUserToChat({
+              users: [
+                formDataObj.userId,
+              ],
+              chatId: store.getState().chat.chat_id,
+            }).then(() => {
+              ChatController.getUsers()?.then((res) => {
+                store.set('chat.users', res);
+                store.getState().chat.users.forEach((item: Record<string, unknown>) => {
+                  item.isMe = (item.id === store.getState().user.id);
+                });
+              }).catch((err) => console.log(err));
+            }).catch((err) => console.log(err));
+
+            form.reset();
+          }
         },
       },
     });
@@ -116,24 +122,27 @@ class ChatMessages extends Block {
             buttonText: text,
             data: item.id,
             events: {
-              click: (event: any) => {
+              click: (event: Event) => {
                 event.preventDefault();
-                const deleteUser = event.currentTarget.getAttribute('data-btn');
+                const target = event.currentTarget as HTMLElement;
+                if (target) {
+                  const deleteUser = target.getAttribute('data-btn') as string;
 
-                if (store.getState().user.id !== parseInt(deleteUser)) {
-                  ChatController.deleteUserFromChat({
-                    users: [
-                      parseInt(deleteUser),
-                    ],
-                    chatId: store.getState().chat.chat_id,
-                  }).then(() => {
-                    ChatController.getUsers().then((res) => {
-                      store.set('chat.users', res);
-                      store.getState().chat.users.forEach((item: Record<string, unknown>) => {
-                        item.isMe = (item.id === store.getState().user.id);
-                      });
-                    });
-                  });
+                  if (store.getState().user.id !== parseInt(deleteUser)) {
+                    ChatController.deleteUserFromChat({
+                      users: [
+                        parseInt(deleteUser),
+                      ],
+                      chatId: store.getState().chat.chat_id,
+                    }).then(() => {
+                      ChatController.getUsers()?.then((res) => {
+                        store.set('chat.users', res);
+                        store.getState().chat.users.forEach((item: Record<string, unknown>) => {
+                          item.isMe = (item.id === store.getState().user.id);
+                        });
+                      }).catch((err) => console.log(err));
+                    }).catch((err) => console.log(err));
+                  }
                 }
               },
             },

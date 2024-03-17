@@ -19,9 +19,9 @@ class LoginController {
         store.set('loginPage.alertText', (<any>res).reason);
       } else {
         router.go('/messenger');
-        UserController.userInfo();
+        UserController.userInfo().catch((err) => console.log(err));
       }
-    });
+    }).catch((err) => console.log(err));
   }
 }
 

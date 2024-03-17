@@ -48,29 +48,32 @@ class EditPassword extends Block {
       settings: { withInternalID: true },
       type: 'submit',
       events: {
-        click: (event: any) => {
+        click: (event: Event) => {
           event.preventDefault();
-          const form = event.target.closest('form');
-          const data = new FormData(form);
-          const formDataObj: Record<string, string> = {};
-          data.forEach((value, key) => {
-            if (typeof value === 'string') {
-              (formDataObj[key] = value);
-            }
-          });
+          const target = event.target as HTMLElement;
+          if (target) {
+            const form = target.closest('form') as HTMLFormElement;
+            const data = new FormData(form);
+            const formDataObj: Record<string, string> = {};
+            data.forEach((value, key) => {
+              if (typeof value === 'string') {
+                (formDataObj[key] = value);
+              }
+            });
 
-          for (const [key, value] of Object.entries(formDataObj)) {
-            const validateService = new ValidateService(key, value);
+            for (const [key, value] of Object.entries(formDataObj)) {
+              const validateService = new ValidateService(key, value);
 
-            if (Array.isArray(this.children.inputGroup)) {
-              const input = this.children.inputGroup.find((element) => element.props.name === key);
-              if (input) {
-                input.setProps({ validateMessage: validateService.errorMessage() });
-                input.setProps({ showValidateError: validateService.validate[key] });
+              if (Array.isArray(this.children.inputGroup)) {
+                const input = this.children.inputGroup.find((element) => element.props.name === key);
+                if (input) {
+                  input.setProps({ validateMessage: validateService.errorMessage() });
+                  input.setProps({ showValidateError: validateService.validate[key] });
+                }
               }
             }
+            UserController.changePassword(formDataObj);
           }
-          UserController.changePassword(formDataObj);
         },
       },
     });
@@ -80,7 +83,7 @@ class EditPassword extends Block {
       href: '../Register/index.html',
       settings: { withInternalID: true },
       events: {
-        click: (event: any) => {
+        click: (event: Event) => {
           event.preventDefault();
           const router = new Router('.app');
           router.go('/messenger');

@@ -5,8 +5,12 @@ import UserApi from '../api/user-api';
 
 class UserController {
   public async userInfo() {
-    const res = await AuthAPI.userInfo();
-    store.set('user', res);
+    try {
+      const res = await AuthAPI.userInfo();
+      store.set('user', res);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   public changePassword(payload: Indexed) {

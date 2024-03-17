@@ -15,7 +15,7 @@ export default class ServerErrorPage extends Block {
       className: 'btn btn-purple mt-3 m-auto',
       settings: { withInternalID: true },
       events: {
-        click: (event: any) => {
+        click: (event: Event) => {
           event.preventDefault();
           const router = new Router('.app');
           router.go('/messenger');

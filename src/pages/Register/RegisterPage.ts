@@ -49,31 +49,33 @@ class RegisterPage extends Block {
       settings: { withInternalID: true },
       type: 'submit',
       events: {
-        click: (event: any) => {
+        click: (event: Event) => {
           event.preventDefault();
+          const target = event.target as HTMLElement;
+          if (target) {
+            const form = target.closest('form') as HTMLFormElement;
+            const data = new FormData(form);
+            const registerData: Record<string, string> = {};
+            data.forEach((value, key) => {
+              if (typeof value === 'string') {
+                (registerData[key] = value);
+              }
+            });
 
-          const form = event.target.closest('form');
-          const data = new FormData(form);
-          const registerData: Record<string, string> = {};
-          data.forEach((value, key) => {
-            if (typeof value === 'string') {
-              (registerData[key] = value);
-            }
-          });
+            for (const [key, value] of Object.entries(registerData)) {
+              const validateService = new ValidateService(key, value);
 
-          for (const [key, value] of Object.entries(registerData)) {
-            const validateService = new ValidateService(key, value);
-
-            if (Array.isArray(this.children.inputGroup)) {
-              const input = this.children.inputGroup.find((element) => element.props.name === key);
-              if (input) {
-                input.setProps({ validateMessage: validateService.errorMessage() });
-                input.setProps({ showValidateError: validateService.validate[key] });
+              if (Array.isArray(this.children.inputGroup)) {
+                const input = this.children.inputGroup.find((element) => element.props.name === key);
+                if (input) {
+                  input.setProps({ validateMessage: validateService.errorMessage() });
+                  input.setProps({ showValidateError: validateService.validate[key] });
+                }
               }
             }
-          }
 
-          RegisterController.signUp(registerData);
+            RegisterController.signUp(registerData);
+          }
         },
       },
     });
@@ -82,7 +84,7 @@ class RegisterPage extends Block {
       className: 'btn btn-text m-auto',
       settings: { withInternalID: true },
       events: {
-        click: (event: any) => {
+        click: (event: Event) => {
           event.preventDefault();
           const router = new Router('.app');
           router.go('/sign-in');

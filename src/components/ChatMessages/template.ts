@@ -15,7 +15,7 @@ export const tpl = `<div class="chat__content__body">
                 <input class="chat__search__input chat__search__input-bordered"
                        type="text"
                        name="userId"
-                       placeholder="Добавить пользователя в чат">
+                       placeholder="Добавить пользователя в чат (нужно ввести id-ик)">
                 {{{addUserBtn}}}
                 </form>
             {{/if}}

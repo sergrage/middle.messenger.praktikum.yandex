@@ -12,6 +12,8 @@ interface OptionsI {
     data?: Record<string, unknown>
 }
 
+type httpMethodType = (url: string, options?: OptionsI) => Promise<unknown>;
+
 function queryStringify(urlPart: { [key: string]: unknown; } = {}) {
   let result = '';
   let char = '?';
@@ -31,28 +33,20 @@ function queryStringify(urlPart: { [key: string]: unknown; } = {}) {
 }
 
 export default class HTTPTransport {
-  get = (url: string, options: OptionsI = {
-    timeout: null,
-  }) => {
-    const query = options.data ? queryStringify(options.data) : '';
+  get:httpMethodType = (url, options) => {
+    const query = options?.data ? queryStringify(options.data) : '';
     return this.request(url + query, {
       ...options,
       method: METHODS.GET,
-    }, options.timeout);
+    }, options?.timeout);
   };
 
   // PUT, POST, DELETE
-  POST = (url: string, options: OptionsI = {
-    timeout: null,
-  }) => this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  POST: httpMethodType = (url, options) => this.request(url, { ...options, method: METHODS.POST }, options?.timeout);
 
-  PUT = (url: string, options: OptionsI = {
-    timeout: null,
-  }) => this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  PUT: httpMethodType = (url, options) => this.request(url, { ...options, method: METHODS.PUT }, options?.timeout);
 
-  DELETE = (url: string, options: OptionsI = {
-    timeout: null,
-  }) => this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  DELETE: httpMethodType = (url, options) => this.request(url, { ...options, method: METHODS.DELETE }, options?.timeout);
 
   request = (url: string, options: OptionsI, timeout?: number | null) => {
     const { method, data, headers } = options;
@@ -80,11 +74,7 @@ export default class HTTPTransport {
       xhr.ontimeout = () => reject({ reason: 'timeout' });
 
       xhr.onload = () => {
-        try {
-          resolve(JSON.parse(xhr.response));
-        } catch (err) {
-          resolve(err);
-        }
+        resolve(JSON.parse(xhr.response));
       };
 
       if (method === METHODS.GET && data) {

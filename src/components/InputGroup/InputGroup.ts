@@ -22,11 +22,14 @@ export default class InputGroup extends Block {
       type: props.type,
       settings: { withInternalID: true },
       events: {
-        blur: (event: any) => {
-          const val = event.target.value;
-          const validateService = new ValidateService(<string>props.name, <string>val);
-          this.setProps({ validateMessage: validateService.errorMessage() });
-          this.setProps({ showValidateError: validateService.validate[<string>props.name] });
+        blur: (event: Event) => {
+          const target = event.target as HTMLInputElement;
+          if (target) {
+            const val = target.value;
+            const validateService = new ValidateService(<string>props.name, <string>val);
+            this.setProps({ validateMessage: validateService.errorMessage() });
+            this.setProps({ showValidateError: validateService.validate[<string>props.name] });
+          }
         },
       },
     });

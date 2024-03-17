@@ -53,29 +53,31 @@ class EditProfile extends Block {
         settings: { withInternalID: true },
         type: 'submit',
         events: {
-          click: (event: any) => {
+          click: (event: Event) => {
             event.preventDefault();
-            const form = event.target.closest('form');
-            const data = new FormData(form);
-            const formDataObj: Record<string, string> = {};
-            data.forEach((value, key) => {
-              if (typeof value === 'string') {
-                (formDataObj[key] = value);
-              }
-            });
+            const target = event.target as HTMLElement;
+            if (target) {
+              const form = target.closest('form') as HTMLFormElement;
+              const data = new FormData(form);
+              const formDataObj: Record<string, string> = {};
+              data.forEach((value, key) => {
+                if (typeof value === 'string') {
+                  (formDataObj[key] = value);
+                }
+              });
+              for (const [key, value] of Object.entries(formDataObj)) {
+                const validateService = new ValidateService(key, value);
 
-            for (const [key, value] of Object.entries(formDataObj)) {
-              const validateService = new ValidateService(key, value);
-
-              if (Array.isArray(this.children.inputGroup)) {
-                const input = this.children.inputGroup.find((element) => element.props.name === key);
-                if (input) {
-                  input.setProps({ validateMessage: validateService.errorMessage() });
-                  input.setProps({ showValidateError: validateService.validate[key] });
+                if (Array.isArray(this.children.inputGroup)) {
+                  const input = this.children.inputGroup.find((element) => element.props.name === key);
+                  if (input) {
+                    input.setProps({ validateMessage: validateService.errorMessage() });
+                    input.setProps({ showValidateError: validateService.validate[key] });
+                  }
                 }
               }
+              ProfileController.update(formDataObj);
             }
-            ProfileController.update(formDataObj);
           },
         },
       });
@@ -84,7 +86,7 @@ class EditProfile extends Block {
         className: 'btn btn-purple mt-3 m-auto d-inline-block',
         settings: { withInternalID: true },
         events: {
-          click: (event: any) => {
+          click: (event: Event) => {
             event.preventDefault();
             const router = new Router('.app');
             router.go('/messenger');
@@ -97,7 +99,7 @@ class EditProfile extends Block {
         className: 'btn btn-purple mt-3 m-auto d-inline-block',
         settings: { withInternalID: true },
         events: {
-          click: (event: any) => {
+          click: (event: Event) => {
             event.preventDefault();
             const router = new Router('.app');
             router.go('/change-password');
@@ -111,14 +113,17 @@ class EditProfile extends Block {
         className: 'd-none',
         settings: { withInternalID: true },
         events: {
-          change: (event: any) => {
+          change: (event: Event) => {
             event.preventDefault();
-            const file = event.target.files[0];
+            const target = event.target as HTMLInputElement;
+            if (target && target.files) {
+              const file = target.files[0];
 
-            const formData = new FormData();
-            formData.append('avatar', file, file.name);
+              const formData = new FormData();
+              formData.append('avatar', file, file.name);
 
-            UserController.uploadAvatar(formData);
+              UserController.uploadAvatar(formData);
+            }
           },
         },
       });

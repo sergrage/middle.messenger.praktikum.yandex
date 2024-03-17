@@ -35,7 +35,7 @@ class ChatPage extends Block {
         className: 'btn',
         buttonText: 'Профиль <span class="chat__profile__link-purple"><i class="fa-solid fa-angle-right"></i></span>',
         events: {
-          click: (event: any) => {
+          click: (event: Event) => {
             event.preventDefault();
             const router = new Router('.app');
             router.go('/settings');
@@ -45,17 +45,20 @@ class ChatPage extends Block {
       this.children.addChat = new Button({
         buttonText: '<span><i class="fa-solid fa-square-plus"></i></span>',
         events: {
-          click: (event: any) => {
+          click: (event: Event) => {
             event.preventDefault();
-            const form = event.target.closest('form');
-            const data = new FormData(form);
-            const chatName = data.get('chatName');
-            ChatController.storeChat({ title: chatName }).then(() => {
-              ChatController.getChatList().then(() => {
-                this.updateThreadsList();
-                this.eventBus().emit(Block.EVENTS.FLOW_CDU);
+            const target = event.target as HTMLElement;
+            if (target) {
+              const form = target.closest('form') as HTMLFormElement;
+              const data = new FormData(form);
+              const chatName = data.get('chatName');
+              ChatController.storeChat({ title: chatName }).then(() => {
+                ChatController.getChatList().then(() => {
+                  this.updateThreadsList();
+                  this.eventBus().emit(Block.EVENTS.FLOW_CDU);
+                });
               });
-            });
+            }
           },
         },
       });
@@ -84,45 +87,48 @@ class ChatPage extends Block {
         unread_count: item.unread_count,
         last_message: item.last_message,
         events: {
-          click: (event: any) => {
+          click: (event: Event) => {
             event.preventDefault();
 
-            const chatThreads = document.querySelectorAll('.chat__thread');
-            chatThreads.forEach((el) => el.classList.remove('chat__thread-active'));
-            event.currentTarget.classList.add('chat__thread-active');
+            const target = event.currentTarget as HTMLElement;
+            if (target) {
+              const chatThreads = document.querySelectorAll('.chat__thread');
+              chatThreads.forEach((el) => el.classList.remove('chat__thread-active'));
+              target.classList.add('chat__thread-active');
 
-            const chat_id = parseInt(event.currentTarget.dataset.chat_id);
+              const chat_id = parseInt(target.dataset.chat_id as string);
 
-            store.set('chat.title', event.currentTarget.querySelector('.chat__thread__name').textContent);
-            store.set('chat.chat_id', chat_id);
+              store.set('chat.title', target.querySelector('.chat__thread__name')?.textContent);
+              store.set('chat.chat_id', chat_id);
 
-            ChatController.getUsers().then((res) => {
-              store.set('chat.users', res);
-              store.getState().chat.users.forEach((item: Record<string, unknown>) => {
-                item.isMe = item.id === store.getState().user.id;
-              });
-            });
-            ChatController.getChatToken(chat_id).then((res) => {
-              const user_id = store.getState().user.id;
+              ChatController.getUsers()?.then((res) => {
+                store.set('chat.users', res);
+                store.getState().chat.users.forEach((item: Record<string, unknown>) => {
+                  item.isMe = item.id === store.getState().user.id;
+                });
+              }).catch((err) => console.log(err));
+              ChatController.getChatToken(chat_id).then((res) => {
+                const user_id = store.getState().user.id;
 
-              const { token } = (<any>res);
-              const connection = ChatController.connectToChat(user_id, chat_id, token);
-              store.set('chat.connection', connection);
+                const { token } = (<any>res);
+                const connection = ChatController.connectToChat(user_id, chat_id, token);
+                store.set('chat.connection', connection);
 
-              connection.on('message', (data) => {
-                if (Array.isArray(data)) {
-                  data.forEach((item) => {
-                    item.isMy = item.user_id === store.getState().user.id;
-                  });
-                  store.set('chatMessages', data);
-                } else {
+                connection?.on('message', (data) => {
+                  if (Array.isArray(data)) {
+                    data.forEach((item) => {
+                      item.isMy = item.user_id === store.getState().user.id;
+                    });
+                    store.set('chatMessages', data);
+                  } else {
+                    this.getMessages();
+                  }
+                });
+                connection?.connect().then(() => {
                   this.getMessages();
-                }
-              });
-              connection.connect().then(() => {
-                this.getMessages();
-              });
-            });
+                }).catch((err) => console.log(err));
+              }).catch((err) => console.log(err));
+            }
           },
         },
       }));
