@@ -74,7 +74,11 @@ export default class HTTPTransport {
       xhr.ontimeout = () => reject({ reason: 'timeout' });
 
       xhr.onload = () => {
-        resolve(JSON.parse(xhr.response));
+        try {
+          resolve(JSON.parse(xhr.response));
+        } catch {
+          resolve(xhr.response);
+        }
       };
 
       if (method === METHODS.GET && data) {

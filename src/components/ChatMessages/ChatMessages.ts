@@ -136,10 +136,12 @@ class ChatMessages extends Block {
                       chatId: store.getState().chat.chat_id,
                     }).then(() => {
                       ChatController.getUsers()?.then((res) => {
-                        store.set('chat.users', res);
-                        store.getState().chat.users.forEach((item: Record<string, unknown>) => {
-                          item.isMe = (item.id === store.getState().user.id);
-                        });
+                        if (Array.isArray(res)) {
+                          res.forEach((item: Record<string, unknown>) => {
+                            item.isMe = (item.id === store.getState().user.id);
+                          });
+                          store.set('chat.users', res);
+                        }
                       }).catch((err) => console.log(err));
                     }).catch((err) => console.log(err));
                   }
