@@ -38,7 +38,12 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "vite": "^5.0.8",
-    "xhr-mock": "^2.5.1"
+    "xhr-mock": "^2.5.1",
+    "chai": "^4.0.0",
+    "sinon": "^17.0.1",
+    "mocha": "^10.3.0",
+    "sinon-chai": "^3.7.0",
+    "jsdom": "^24.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
@@ -46,11 +51,6 @@
     "handlebars": "^4.7.8",
     "normalize.css": "^8.0.1",
     "uuid": "^9.0.1",
-    "vite-plugin-handlebars": "^2.0.0",
-    "chai": "^4.0.0",
-    "sinon": "^17.0.1",
-    "mocha": "^10.3.0",
-    "sinon-chai": "^3.7.0",
-    "jsdom": "^24.0.0"
+    "vite-plugin-handlebars": "^2.0.0"
   }
 }
