@@ -1,0 +1,33 @@
+.login {
+  height: 450px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 0 rgba(34 60 80 / 20%);
+  text-align: center;
+
+  &__header {
+    padding-top: 30px;
+    color: var(--text-color);
+    font-size: 20px;
+
+    &-lineAfter::after {
+      width: 80px;
+      height: 2px;
+      background: var(--purple-color);
+      content: "";
+      margin: 5px auto;
+      display: block;
+    }
+  }
+
+  &__form {
+    padding: 20px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+}
+

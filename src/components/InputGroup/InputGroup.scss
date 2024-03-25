@@ -1,0 +1,36 @@
+.inputGroup {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+
+    &__label {
+        color: var(--text-second-color);
+        font-size: 9px;
+    }
+
+    &__input {
+        border: none;
+        border-bottom: 1px solid var(--blue-color);
+        width: 100%;
+        font-size: 13px;
+        color: var(--text-color);
+        height: 20px;
+
+        &-purple {
+            color: var(--purple-color);
+        }
+
+        &:focus-visible {
+            border: none;
+            border-bottom: 1px solid var(--blue-color);
+            outline: none;
+        }
+    }
+
+    &__error {
+        margin-top:3px;
+        color: red;
+        font-size: 8px;
+    }
+}

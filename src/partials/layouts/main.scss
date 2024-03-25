@@ -1,0 +1,133 @@
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+    --purple-color: #B27FB2;
+    --blue-color: #3369F3;
+    --gray-color: #EFEFEF;
+    --white-color: #FFF;
+    --text-color: #1E1E1E;
+    --threads-bg-color: #FBFBFB;
+    --thread-active-bg-color: #F0F8FF;
+    --text-second-color: #999;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.mt-3 {
+  margin-top: 48px !important;
+}
+
+.mx-1 {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1920px;
+  height: 100vh;
+
+  &-center {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  display: block;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 300;
+  transition: all .3s;
+  text-decoration: none;
+  width: fit-content;
+
+  &-purple {
+    background: var(--purple-color);
+    color: #fff;
+
+    &:hover {
+      background: #8e658e;
+    }
+  }
+
+  &-big {
+    width: 100%;
+  }
+
+  &-text {
+    color: #3369F3;
+    font-size: 11px;
+    background: transparent;
+    font-weight: bold;
+
+    &-red {
+      color: red;
+    }
+  }
+}
+
+.alert {
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.badge-btn {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+
+    &-main {
+        background-color:  #0d6efd!important;
+    }
+
+    &-danger {
+        background-color: #dc3545!important;
+        cursor: pointer;
+    }
+}

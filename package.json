@@ -1,0 +1,56 @@
+{
+  "name": "chat-app",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint"
+    }
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "vite build && node server.js",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "npx eslint \"**/*.{js,ts}\" --rule \"@typescript-eslint/ban-ts-comment: error\" --fix"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.14",
+    "@types/mocha": "^10.0.6",
+    "@types/sinon": "^17.0.3",
+    "@types/sinon-chai": "^3.2.12",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "husky": "^9.0.11",
+    "ignore-styles": "^5.0.1",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.70.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8",
+    "xhr-mock": "^2.5.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "express": "^4.18.2",
+    "handlebars": "^4.7.8",
+    "normalize.css": "^8.0.1",
+    "uuid": "^9.0.1",
+    "vite-plugin-handlebars": "^2.0.0",
+    "chai": "^4.0.0",
+    "sinon": "^17.0.1",
+    "mocha": "^10.3.0",
+    "sinon-chai": "^3.7.0",
+    "jsdom": "^24.0.0"
+  }
+}

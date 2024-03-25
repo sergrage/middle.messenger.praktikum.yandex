@@ -1,0 +1,17 @@
+.notFound {
+  text-align: center;
+
+  &__title {
+    color: var(--text-color);
+    font-size: 40px;
+  }
+
+  &__text {
+    color:  var(--text-color);
+    font-size: 20px;
+
+    &-purple {
+      color:  var(--purple-color);
+    }
+  }
+}
