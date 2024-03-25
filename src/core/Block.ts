@@ -248,7 +248,6 @@ export default class Block {
   }
 
   hide() {
-    console.log('hide');
     if (this._element) {
       this._element.remove();
     }
