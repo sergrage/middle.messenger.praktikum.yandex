@@ -6,11 +6,6 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm-run-all test lint"
-    }
-  },
   "scripts": {
     "test": "mocha",
     "start": "vite build && node server.js",
