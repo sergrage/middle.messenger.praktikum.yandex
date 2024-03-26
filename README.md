@@ -30,3 +30,8 @@ npm i
 node server.js | npm run dev
 npm run build
 ```
+## test:
+
+```
+mocha + chai
+```
