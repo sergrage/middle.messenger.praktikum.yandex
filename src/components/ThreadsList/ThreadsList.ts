@@ -16,6 +16,7 @@ export default class ThreadsList extends Block {
       last_message: this.props.last_message,
       time: this.props.last_message ? new Date(this.props.last_message.time).toJSON().slice(0, 10) : '',
       title: this.props.title,
+      avatar: this.props.avatar,
     });
   }
 }

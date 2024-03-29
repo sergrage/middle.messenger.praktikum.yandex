@@ -10,6 +10,7 @@
   "rules": {
     "no-param-reassign": 0,
     "max-len": "off",
+    "import/no-extraneous-dependencies": "off",
     "no-restricted-globals": "off",
     "no-plusplus": "off",
     "no-prototype-builtins": "off",

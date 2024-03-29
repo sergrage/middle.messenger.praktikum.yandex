@@ -6,18 +6,15 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm-run-all test lint"
-    }
-  },
   "scripts": {
     "test": "mocha",
     "start": "vite build && node server.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "npx eslint \"**/*.{js,ts}\" --rule \"@typescript-eslint/ban-ts-comment: error\" --fix"
+    "lint": "npx eslint \"**/*.{js,ts}\" --rule \"@typescript-eslint/ban-ts-comment: error\" --fix",
+    "stylelint": "npx stylelint \"**/*.scss\"",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/chai": "^4.3.14",
@@ -27,13 +24,18 @@
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
+    "chai": "^4.0.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
     "husky": "^9.0.11",
     "ignore-styles": "^5.0.1",
+    "jsdom": "^24.0.0",
+    "mocha": "^10.3.0",
     "npm-run-all": "^4.1.5",
     "sass": "^1.70.0",
-    "stylelint": "^16.2.1",
+    "sinon": "^17.0.1",
+    "sinon-chai": "^3.7.0",
+    "stylelint": "^16.3.1",
     "stylelint-config-standard-scss": "^13.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
@@ -46,11 +48,6 @@
     "handlebars": "^4.7.8",
     "normalize.css": "^8.0.1",
     "uuid": "^9.0.1",
-    "vite-plugin-handlebars": "^2.0.0",
-    "chai": "^4.0.0",
-    "sinon": "^17.0.1",
-    "mocha": "^10.3.0",
-    "sinon-chai": "^3.7.0",
-    "jsdom": "^24.0.0"
+    "vite-plugin-handlebars": "^2.0.0"
   }
 }
