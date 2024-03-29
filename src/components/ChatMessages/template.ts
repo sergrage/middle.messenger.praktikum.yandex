@@ -24,9 +24,12 @@ export const tpl = `<div class="chat__content__body">
                 {{{logoutBtn}}}
             </div>
         </div>
-        <p id="chatUsers"> Участники чата: 
-         {{{chatUsersBtns}}}
-        </p>
+        <div class="">
+            <p id="chatUsers"> Участники чата: 
+            {{{chatUsersBtns}}}
+            </p>
+        </div>
+
        {{#if chatMessages.length}}
 
 

@@ -1,6 +1,11 @@
 export const tpl = `<div class="chat__thread">
     <div class="chat__thread__info">
-        <div class="chat__thread__avatar"></div>
+            {{#if avatar}}
+            <img src="{{avatar}}" alt="avatar" class="chat__thread__avatar_img">
+            {{else}}
+            <div class="chat__thread__avatar"></div>
+           {{/if}}
+
         <div class="chat__thread__title">
             <p class="chat__thread__name">{{title}}</p>
             <p class="chat__thread__lastText">
